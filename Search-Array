@@ -1,0 +1,93 @@
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+public class Search {
+    
+    public static void main(String[] args) {
+        
+        Boolean progCont = true;
+        
+        char[] UserInput = new char[10];
+        
+        JOptionPane.showMessageDialog(null, "This program will request 10 letters, then allow you to search for the desired letter's position in the array. Please click OK to continue.");
+        
+        while(progCont = true) {
+            
+            String userOne = JOptionPane.showInputDialog("Please enter the 1st letter:");
+            char numberOne = userOne.charAt(0);
+            UserInput[0] = numberOne;
+            
+            String userTwo = JOptionPane.showInputDialog("Please enter the 2nd letter:");
+            char numberTwo = userTwo.charAt(0);
+            UserInput[1] = numberTwo;
+            
+            String userThree = JOptionPane.showInputDialog("Please enter the 3rd letter:");
+            char numberThree = userThree.charAt(0);
+            UserInput[2] = numberThree;
+            
+            String userFour = JOptionPane.showInputDialog("Please enter the 4th letter:");
+            char numberFour = userFour.charAt(0);
+            UserInput[3] = numberFour;
+            
+            String userFive = JOptionPane.showInputDialog("Please enter the 5th letter:");
+            char numberFive = userFive.charAt(0);
+            UserInput[4] = numberFive;
+            
+            String userSix = JOptionPane.showInputDialog("Please enter the 6th letter:");
+            char numberSix = userSix.charAt(0);
+            UserInput[5] = numberSix;
+            
+            String userSeven = JOptionPane.showInputDialog("Please enter the 7th letter:");
+            char numberSeven = userSeven.charAt(0);
+            UserInput[6] = numberSeven;
+            
+            String userEight = JOptionPane.showInputDialog("Please enter the 8th letter:");
+            char numberEight = userEight.charAt(0);
+            UserInput[7] = numberEight;
+            
+            String userNine = JOptionPane.showInputDialog("Please enter the 9th letter:");
+            char numberNine = userNine.charAt(0);
+            UserInput[8] = numberNine;
+            
+            String userTen = JOptionPane.showInputDialog("Please enter the 10th letter:");
+            char numberTen = userTen.charAt(0);
+            UserInput[9] = numberTen;
+            
+            String search = JOptionPane.showInputDialog("Which letter would you like to search for?");
+            char searchLetter = search.charAt(0);
+            
+            int c = 0;
+            int position = 0;
+            
+            for(int i = 0; i < UserInput.length; i++) {
+                if(UserInput[i] == searchLetter) {
+                    c = 1;
+                    position = i+1;
+                    break;
+                }
+            }
+            
+            if(c == 0) {
+                JOptionPane.showMessageDialog(null, "Letter not found.");
+            }
+            
+            else {            
+                JOptionPane.showMessageDialog(null, "Your letter " + searchLetter + " is found at position " + position);
+            }
+            
+            String userNext = JOptionPane.showInputDialog("Would you like to restart or exit the application? [R] to Restart, [E] to Exit.");
+            char selection = userNext.charAt(0);
+            
+            if(selection == 'R' || selection == 'r') {
+                JOptionPane.showMessageDialog(null, "Restarting now, press OK to continue.");
+                progCont = true;
+            }
+            
+            if(selection == 'E' || selection == 'e') {
+                JOptionPane.showMessageDialog(null, "Thank you. Have a nice day!");
+                progCont = false;
+                break;
+            }
+            
+        }
+    }
+}
