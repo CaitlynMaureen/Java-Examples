@@ -1,0 +1,88 @@
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+public class Sorting {
+    
+    public static void main(String[] args) {
+        
+        Boolean progCont = true;
+        
+        int[] UserInput = new int[10];
+        
+        JOptionPane.showMessageDialog(null, "This program will request 10 numbers, then sort them in descending order. Please click OK to continue.");
+        
+        while(progCont = true) {
+            
+            String userOne = JOptionPane.showInputDialog("Please enter the 1st number:");
+            int numberOne = Integer.parseInt(userOne);
+            UserInput[0] = numberOne;
+            
+            String userTwo = JOptionPane.showInputDialog("Please enter the 2nd number:");
+            int numberTwo = Integer.parseInt(userTwo);
+            UserInput[1] = numberTwo;
+            
+            String userThree = JOptionPane.showInputDialog("Please enter the 3rd number:");
+            int numberThree = Integer.parseInt(userThree);
+            UserInput[2] = numberThree;
+            
+            String userFour = JOptionPane.showInputDialog("Please enter the 4th number:");
+            int numberFour = Integer.parseInt(userFour);
+            UserInput[3] = numberFour;
+            
+            String userFive = JOptionPane.showInputDialog("Please enter the 5th number:");
+            int numberFive = Integer.parseInt(userFive);
+            UserInput[4] = numberFive;
+            
+            String userSix = JOptionPane.showInputDialog("Please enter the 6th number:");
+            int numberSix = Integer.parseInt(userSix);
+            UserInput[5] = numberSix;
+            
+            String userSeven = JOptionPane.showInputDialog("Please enter the 7th number:");
+            int numberSeven = Integer.parseInt(userSeven);
+            UserInput[6] = numberSeven;
+            
+            String userEight = JOptionPane.showInputDialog("Please enter the 8th number:");
+            int numberEight = Integer.parseInt(userEight);
+            UserInput[7] = numberEight;
+            
+            String userNine = JOptionPane.showInputDialog("Please enter the 9th number:");
+            int numberNine = Integer.parseInt(userNine);
+            UserInput[8] = numberNine;
+            
+            String userTen = JOptionPane.showInputDialog("Please enter the 10th number:");
+            int numberTen = Integer.parseInt(userTen);
+            UserInput[9] = numberTen;
+            
+            int i, j, value;
+            for (i = 1; i < UserInput.length; i++) {
+                value = UserInput[i];
+                for (j = i-1; (j >= 0) && (UserInput[j] < value); j--) {
+                    UserInput[j+1] = UserInput[j];
+                }
+                UserInput[j + 1] = value;
+            }
+            
+            
+            JOptionPane.showMessageDialog(null, "Click OK to see your numbers in descending order.");
+            String stringUserInput = Arrays.toString(UserInput);
+            JOptionPane.showMessageDialog(null, stringUserInput);
+            
+            String userNext = JOptionPane.showInputDialog("Would you like to restart or exit the application? [R] to Restart, [E] to Exit.");
+            char selection = userNext.charAt(0);
+            
+            if(selection == 'R' || selection == 'r') {
+                JOptionPane.showMessageDialog(null, "Restarting now, press OK to continue.");
+                progCont = true;
+            }
+            
+            if(selection == 'E' || selection == 'e') {
+                JOptionPane.showMessageDialog(null, "Thank you. Have a nice day!");
+                progCont = false;
+                break;
+            }
+        }
+    }
+    private static Object toString(int[] userInput) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+}
