@@ -1,0 +1,117 @@
+package atm;
+import java.util.Scanner; 
+public class ATM {
+    
+    private double currentBalance = 1000;
+    Scanner input = new Scanner(System.in);
+    
+    public void introduction() {
+            
+    System.out.println("Hello, welcome to Bank of America.");
+    System.out.println("");
+    new ATM().menu();
+    }
+    
+    public void menu() {
+    
+    int selection;
+    
+    System.out.println("Please select one of the following options:");
+    System.out.println("Press 1 for Balance");
+    System.out.println("Press 2 for Deposit");
+    System.out.println("Press 3 for Withdrawal");
+        
+    selection= input.nextInt();
+    
+    switch (selection) {
+    case 1:
+        displayBalance();
+        break;
+        
+    case 2: 
+        deposit();
+        break;
+        
+    case 3:
+        withdrawal();
+        break;
+    }    
+    }
+    
+    public void displayBalance() {
+    
+        int selection1;
+        System.out.println("Your current balance is: $" + String.format("%.2f", currentBalance));
+        System.out.println("Would you like to complete another transaction? [1] YES [2] NO");
+        selection1 = input.nextInt();
+        
+        switch (selection1) {
+        case 1:
+            menu();
+            break;
+            
+        case 2:
+            exit();
+            break;
+        }
+    }
+    
+    public void deposit() {
+        
+        int depositAmount;
+        int selection2;
+        System.out.println("Please enter the amount you would like to deposit:");
+        depositAmount = input.nextInt();
+        System.out.println("Please submit your deposit now");
+        System.out.println("Now depositing $" + depositAmount);
+        currentBalance = currentBalance + depositAmount;
+        System.out.println("Would you like to complete another transaction? [1] YES [2] NO");
+        selection2 = input.nextInt();
+        
+        switch (selection2) {
+        case 1:
+            menu();
+            break;
+            
+        case 2:
+            exit();
+            break;        
+        }
+        
+    }
+    
+    public void withdrawal() {
+        
+        int withdrawalAmount;
+        int selection3;
+        System.out.println("Please enter the amount you would like to withdrawal:");
+        withdrawalAmount = input.nextInt();
+        System.out.println("Dispensing: $" + withdrawalAmount);
+        System.out.println("Please take your cash.");
+        currentBalance = currentBalance - withdrawalAmount;
+        System.out.println("Would you like to complete another transaction? [1] YES [2] NO");
+        selection3 = input.nextInt();
+        
+        switch (selection3) {
+        case 1:
+            menu();
+            break;
+            
+        case 2:
+            exit();
+            break;        
+        }
+        
+    }
+    
+        
+    public void exit() {
+    
+        System.out.println("Thank you! Come back soon.");
+        
+    }
+    
+    public static void main(String[] args) {
+        new ATM().introduction();
+    }
+}
