@@ -1,0 +1,87 @@
+import javax.swing.JOptionPane; 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+public class GradeCalc {
+    
+    
+  public static void main (String[] args) {
+        
+    JOptionPane.showMessageDialog(null, "Welcome! This program will allow you to enter your students first and last name, along with 4 test scores then calculate their average and letter grade. \nPlease press OK to continue.");        
+        
+    ArrayList<Student> list = new ArrayList <Student>();
+                
+    for (int i = 0; i < 100; i++) {
+      String fName = JOptionPane.showInputDialog("Please enter the first name of student " + (i+1) + " :");
+                
+      String lName = JOptionPane.showInputDialog("Please enter the last name of studnent " + (i+1) + " :");
+                
+      String scoreQuestion1 = JOptionPane.showInputDialog("Please enter the first score");
+      int s1 = Integer.parseInt(scoreQuestion1);
+                
+      String scoreQuestion2 = JOptionPane.showInputDialog("Please enter the second score");
+      int s2 = Integer.parseInt(scoreQuestion2);
+                
+      String scoreQuestion3 = JOptionPane.showInputDialog("Please enter the third score:");
+      int s3 = Integer.parseInt(scoreQuestion3);
+                
+      String scoreQuestion4 = JOptionPane.showInputDialog("Please enter the fourth score:");
+      int s4 = Integer.parseInt(scoreQuestion4);
+                
+      int averageScore = ((s1 + s2 + s3 + s4) / 4);
+      char letterGrade;
+                
+      if(averageScore > 90 && averageScore < 100) {
+        letterGrade = 'A';
+        }
+        
+      if(averageScore > 80 && averageScore < 89) {
+        letterGrade = 'B';
+        }
+        
+      if(averageScore > 70 && averageScore < 79) {
+        letterGrade = 'C';
+        }
+        
+      if(averageScore > 60 && averageScore < 69) {
+        letterGrade = 'D';
+        }
+        
+      else {
+        letterGrade = 'F';
+        }
+                
+    Student s = new Student(lName, fName, averageScore, letterGrade);
+    list.add(s);
+                
+    String process = JOptionPane.showInputDialog("Please enter Y to continue, or N to view results:");
+    char charProcess = process.charAt(0);     
+    if (charProcess == 'N') {
+      break;
+     }
+    }
+        
+        
+    Iterator itr=list.iterator();  
+      while(itr.hasNext()){  
+        Student st=(Student)itr.next();  
+        JOptionPane.showMessageDialog(null, st.lName+" "+st.fName+" "+st.averageScore+" "+st.letterGrade); 
+            
+      }
+   }
+}
+class Student {
+    
+  String lName;
+  String fName;
+  int averageScore;
+  char letterGrade;
+    
+  public Student(String lName, String fName, int averageScore, char letterGrade) {
+    this.lName = lName;
+    this.fName = fName;
+    this.averageScore = averageScore;
+    this.letterGrade = letterGrade;
+  }
+}
+
