@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class taxCalc {
+            
+                
+        public static void main (String[] args) {
+            
+        Scanner input = new Scanner(System.in);    
+        int annualIncome;
+        double annualTax;
+        
+        System.out.print("Please enter your taxable annual income: $");
+        annualIncome = input.nextInt();
+        
+        
+        if (annualIncome > 0 && annualIncome < 8500) {
+            annualTax = annualIncome * (0.1);
+            System.out.println("Annual Tax: $" + String.format("%.2f", annualTax));
+            
+        }
+        
+        if (annualIncome > 8500 && annualIncome < 34500) {
+            annualTax = annualIncome * (0.15);
+            System.out.println("Annual Tax: $" + String.format("%.2f", annualTax));
+        
+        }
+        
+        if (annualIncome > 34500 && annualIncome < 83600) {
+            annualTax = annualIncome * (0.25);
+            System.out.println("Annual Tax: $" + String.format("%.2f", annualTax));
+                
+        }
+            
+        if (annualIncome > 83600 && annualIncome < 174400) {
+            annualTax = annualIncome * (0.28);
+            System.out.println("Annual Tax: $" + String.format("%.2f", annualTax));
+        }
+        
+        if (annualIncome > 174400 && annualIncome < 379150) {
+            annualTax = annualIncome * (0.33);
+            System.out.println("Annual Tax: $" + String.format("%.2f", annualTax));
+        }
+        
+        if (annualIncome > 379150) {
+            annualTax = annualIncome * (0.35);
+            System.out.println("Annual Tax: $" + String.format("%.2f", annualTax));
+            }
+        }
+    }
