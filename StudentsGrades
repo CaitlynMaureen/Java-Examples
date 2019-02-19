@@ -1,0 +1,92 @@
+import javax.swing.JOptionPane;
+public class StudentsGrades {
+    
+    public static void main(String[] args) {
+        
+        int total = 0;
+        int s = 0;
+        int e = 0;
+        Boolean programCont = true;
+        
+    int[][] StudentScores = new int [5][5];
+        
+        StudentScores[0][0] = 75;
+        StudentScores[0][1] = 79;
+        StudentScores[0][2] = 60;
+        StudentScores[0][3] = 65;
+        StudentScores[0][4] = 80;
+        
+        StudentScores[1][0] = 80;
+        StudentScores[1][1] = 75;
+        StudentScores[1][2] = 90;
+        StudentScores[1][3] = 95;
+        StudentScores[1][4] = 60;
+        
+        StudentScores[2][0] = 60;
+        StudentScores[2][1] = 76;
+        StudentScores[2][2] = 80;
+        StudentScores[2][3] = 82;
+        StudentScores[2][4] = 75;
+        
+        StudentScores[3][0] = 66;
+        StudentScores[3][1] = 78;
+        StudentScores[3][2] = 60;
+        StudentScores[3][3] = 80;
+        StudentScores[3][4] = 67;
+        
+        StudentScores[4][0] = 67;
+        StudentScores[4][1] = 76;
+        StudentScores[4][2] = 75;
+        StudentScores[4][3] = 80;
+        StudentScores[4][4] = 99;
+        
+        
+        
+    JOptionPane.showMessageDialog(null, "This system will evaluate student exam scores to determine the class final letter grade.");
+    
+    while(programCont) {
+        
+        String firstQuestion = JOptionPane.showInputDialog("Please enter the number of students to be evaluated:");
+        int numberOfStudents = Integer.parseInt(firstQuestion);
+        s = numberOfStudents;
+    
+        String secondQuestion = JOptionPane.showInputDialog("Please enter the number of exams complete this term:");
+        int numberOfExams = Integer.parseInt(secondQuestion);
+        e = numberOfExams;
+        
+        double classAverage = 0;
+        int sum = 0;
+        
+  
+        if(classAverage >= 90 && classAverage <= 100) {
+            JOptionPane.showMessageDialog(null, "The class grade is: A");
+        }
+        if(classAverage >= 80 && classAverage <= 89) {
+            JOptionPane.showMessageDialog(null, "The class grade is: B");
+        }
+        if(classAverage >= 70 && classAverage <= 79) {
+            JOptionPane.showMessageDialog(null, "The class grade is: C");
+        }
+        if(classAverage >= 60 && classAverage <= 69) {
+            JOptionPane.showMessageDialog(null, "The class grade is: D");
+        }
+        if(classAverage <= 59) {
+            JOptionPane.showMessageDialog(null, "The class grade is: F");
+        }
+    
+        String next = JOptionPane.showInputDialog("Would you like to restart or exit the application? [R] for Restart, [E] for Exit");
+        char selection = next.charAt(0);
+    
+        if(selection == 'R' || selection == 'r') {
+            JOptionPane.showMessageDialog(null, "Restarting now, press OK to continue.");
+            programCont = true;
+        }
+    
+        else if (selection == 'E' || selection == 'e') {
+            JOptionPane.showMessageDialog(null, "Thank you. See you next time.");
+            programCont = false;
+    
+        }
+    }
+  }
+}
