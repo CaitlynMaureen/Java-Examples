@@ -1,0 +1,85 @@
+import java.util.Random;
+import javax.swing.JOptionPane;
+public class SearchSort {
+    
+    public static void main(String[] args) {
+    
+        int[] theArray = new int [100];
+        int results;
+        
+        Random randomNums = new Random();
+        
+        int count = 0;
+        while (count < 100) {
+            theArray[count] = 0 + randomNums.nextInt(100);
+            count++;            
+        }
+        
+        int placeHolder;
+        for (int i = 1; i < theArray.length; i++) {
+            for(int j = i ; j > 0 ; j--){
+                if(theArray[j] < theArray[j-1]){
+                    placeHolder = theArray[j];
+                    theArray[j] = theArray[j-1];
+                    theArray[j-1] = placeHolder;
+                }
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "This program will generate a random list of numbers and search for any number you can think of!");
+        String userInputLin = JOptionPane.showInputDialog("Please enter a number to search for: ");
+        int userNumberLin = Integer.parseInt(userInputLin);
+        
+        int index = 0;
+        int testResultLin = -1;
+        boolean foundLin = true;
+        
+        while (foundLin && index < theArray.length) {
+            if (theArray[index] == userNumberLin) {
+                foundLin = false;
+                testResultLin = index;
+            }
+            index++;
+        }
+        
+        if (testResultLin == -1) {
+            JOptionPane.showMessageDialog(null, "No, the number " + userNumberLin + " is not in the list of random numbers. \n We sorted the data and searched one-by-one, but no luck.");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Wow! The number " + userNumberLin + " was in the list of random numbers! \n We sorted the data and searched one-by-one and we found it!");
+        }
+        
+        String userInputBin = JOptionPane.showInputDialog("Let's try one more time. Please enter another number to search for: ");
+        int userNumberBin = Integer.parseInt(userInputBin);
+        
+        int start = 0;
+        int end = theArray.length - 1;
+        int status = 0;
+        
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            
+            if (userNumberBin == theArray[mid]) {
+                status = 1;
+            }
+            if (userNumberBin < theArray[mid]) {
+                end = mid - 1;
+            }
+            
+            else {
+                start = mid + 1;
+            }
+        }        
+    
+        if (status == 1) {
+            JOptionPane.showMessageDialog(null, "Wow! The number " + userNumberBin + " was in the list of random numbers! \n We sorted the data, completed a binary search, and we found it!");
+        }
+        
+        else {
+            JOptionPane.showMessageDialog(null, "No, the number " + userNumberBin + " is not in the list of random numbers. \n We sorted the data and completed a binary search, but no luck.");
+        }
+    
+        JOptionPane.showMessageDialog(null, "Thanks for searching! Have a good day!");
+    }
+        
+}
