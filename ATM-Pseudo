@@ -1,0 +1,58 @@
+Identify current balance
+Identify scanner for input
+
+START
+Introduction
+Hello, welcome to the Bank of America.
+
+Menu
+Please selection one of the following options:
+Press 1 for Balance
+Press 2 for Deposit
+Press 3 for Withdrawal
+Accept User Input
+
+Direct with Switch
+Case 1 Balance
+Case 2 Deposit
+Case 3 Withdrawal
+
+Balance
+Display Balance
+Would you like to make another transaction?
+Accept User Input
+
+Direct with Switch
+Return to Menu
+Exit Program
+
+Deposit
+Please enter the amount you would like to deposit
+Accept User Input
+Please submit deposit now
+Now depositing (Input)
+Balance = balance + deposit
+Would you like to make another transaction?
+Accept User Input
+
+Direct with Switch
+Return to Menu
+Exit Program
+
+
+Withdrawal
+Please enter the amount you would like to withdrawal
+Accept User Input
+Dispensing (Input)
+Please take your cash
+Balance = balance – withdrawal
+Would you like to make another transaction?
+Accept User Input
+
+Direct with Switch
+Return to Menu
+Exit Program
+
+Exit
+Thank you! Come back soon.
+END
