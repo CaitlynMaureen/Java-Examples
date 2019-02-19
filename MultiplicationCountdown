@@ -1,0 +1,72 @@
+import javax.swing.JOptionPane;
+public class MultiplicationCountdown {
+    
+    Boolean progCont = true;
+    
+    public void introduction() {
+        JOptionPane.showMessageDialog(null, "This program is designed to take a number and multiply the number by all positive numbers less than it.");
+        process();
+    }
+    
+    
+    public void restart() {
+        
+        String questionRestart = JOptionPane.showInputDialog("Would you like to try again? [Y] YES, [N] NO");
+        char userRestart = questionRestart.charAt(0);
+        
+        if(userRestart == 'Y' || userRestart == 'y') {
+            JOptionPane.showMessageDialog(null, "Restarting now, press OK to continue.");
+            progCont = true;
+            process();
+        }
+        
+        if(userRestart == 'N' || userRestart == 'n') {
+            JOptionPane.showMessageDialog(null, "Thank you. Have a nice day!");
+            progCont = false;
+        }
+        
+        
+    }
+    
+    public void end() {
+        
+        String questionEnd = JOptionPane.showInputDialog("Would you like to exit the program?");
+        char userEnd = questionEnd.charAt(0);
+        
+        if(userEnd == 'Y' || userEnd == 'y') {
+            JOptionPane.showMessageDialog(null, "Thank you. Have a nice day!");
+            progCont = false;
+        }
+        
+        if(userEnd == 'N' || userEnd == 'n') {
+            JOptionPane.showMessageDialog(null, "Restarting now, press OK to continue.");
+            progCont = true;
+            process();
+        }
+    }
+    
+    public void process() {
+        
+        String questionOne = JOptionPane.showInputDialog("Please enter a postive number:");
+        int userNumber = Integer.parseInt(questionOne);
+        
+        if (userNumber < 1) {
+            JOptionPane.showMessageDialog(null, "That input is not correct.");
+            restart();
+        }
+            
+        JOptionPane.showMessageDialog(null, "Calculating now... Press OK to continue.");
+        JOptionPane.showMessageDialog(null, "Your result is: " + RecursiveMethod(userNumber));
+        end();
+    }    
+
+    public int RecursiveMethod(int N) {
+        if (N == 1) return 1;
+        return N*RecursiveMethod(N-1);    
+    }
+    
+    public static void main(String[] args) {
+        new MultiplicationCountdown().introduction();
+    }
+    
+}
