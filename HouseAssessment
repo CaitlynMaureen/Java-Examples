@@ -1,0 +1,80 @@
+import java.util.Scanner;
+public class HouseAssessment {
+    
+    public static void main(String[] args) {
+        
+        
+        System.out.println("This system will provide the average value of a home, the local property tax, and the property tax for this year.");
+        System.out.println("Please enter one of the following destinations for results in that area: Los Angeles, New York, San Francisco, Miami, or Dallas:");
+        
+        Scanner in = new Scanner(System.in);
+        String Location = in.nextLine();
+        
+        if (Location.equals("Los Angeles")) {
+            int MedianCost = 570500;
+            double PropertyTaxPercentage = 1.16;
+            double PropertyTaxDecimal = 0.0116;
+            double TaxesDue = MedianCost * PropertyTaxDecimal;
+            String TaxesDueString = String.format("%.2f", TaxesDue);
+            
+            System.out.println("The current average value of a house: $"+(MedianCost));
+            System.out.println("The local property tax rate: "+(PropertyTaxPercentage)+("%"));
+            System.out.println("The property tax due this year: $"+(TaxesDueString));
+        }
+        
+        else if (Location.equals("New York")) {
+            int MedianCost = 788529;
+            double PropertyTaxPercentage = 0.72;
+            double PropertyTaxDecimal = 0.0072;
+            double TaxesDue = MedianCost * PropertyTaxDecimal;
+            String TaxesDueString = String.format("%.2f", TaxesDue);
+            
+            System.out.println("The current average value of a house: $"+(MedianCost));
+            System.out.println("The local property tax rate: "+(PropertyTaxPercentage)+("%"));
+            System.out.println("The property tax due this year: $"+(TaxesDueString));
+        }
+        
+        else if (Location.equals("San Francisco")) {
+            int MedianCost = 1195000;
+            double PropertyTaxPercentage = 1.19;
+            double PropertyTaxDecimal = 0.0119;
+            double TaxesDue = MedianCost * PropertyTaxDecimal;
+            String TaxesDueString = String.format("%.2f", TaxesDue);
+            
+            System.out.println("The current average value of a house: $"+(MedianCost));
+            System.out.println("The local property tax rate: "+(PropertyTaxPercentage)+("%"));
+            System.out.println("The property tax due this year: $"+(TaxesDueString));
+            
+        }
+        
+        else if (Location.equals("Miami")) {
+            int MedianCost = 306000;
+            double PropertyTaxPercentage = 1.27;
+            double PropertyTaxDecimal = 0.0127;
+            double TaxesDue = MedianCost * PropertyTaxDecimal;
+            String TaxesDueString = String.format("%.2f", TaxesDue);
+            
+            System.out.println("The current average value of a house: $"+(MedianCost));
+            System.out.println("The local property tax rate: "+(PropertyTaxPercentage)+("%"));
+            System.out.println("The property tax due this year: $"+(TaxesDueString));
+        }
+        else if (Location.equals("Dallas")) {
+            int MedianCost = 214800;
+            double PropertyTaxPercentage = 2.72;
+            double PropertyTaxDecimal = 0.0272;
+            double TaxesDue = MedianCost * PropertyTaxDecimal;
+            String TaxesDueString = String.format("%.2f", TaxesDue);
+            
+            System.out.println("The current average value of a house: $"+(MedianCost));
+            System.out.println("The local property tax rate: "+(PropertyTaxPercentage)+("%"));
+            System.out.println("The property tax due this year: $"+(TaxesDueString));
+            
+        }
+        
+        else {
+            
+            System.out.println("We do not have information available for that location. Please reset and try again.");
+        }
+        
+   }
+}
